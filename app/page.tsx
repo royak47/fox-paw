@@ -16,11 +16,8 @@ export default function Home() {
   return (
     <TabProvider>
       <main className="min-h-screen bg-black text-white">
-        <div className="max-w-md mx-auto pt-[44px] pb-[72px]">
-          <CheckFootprint />
-
-          <TabContainer />
-        </div>
+        <CheckFootprint />
+        <TabContainer />
         <NavigationBar />
       </main>
     </TabProvider>
