@@ -3,11 +3,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  swcMinify: true,
+  swcMinify: true, // Enable SWC minification
   experimental: {
-    swcLoader: {
-      useWasm: true,
-    },
+    swcLoader: true, // This should work with the WASM fallback
   },
 };
 
