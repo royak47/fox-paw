@@ -4,5 +4,12 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
 };
+module.exports = {
+  experimental: {
+    swcLoader: {
+      useWasm: true,
+    },
+  },
+};
 
 export default nextConfig;
