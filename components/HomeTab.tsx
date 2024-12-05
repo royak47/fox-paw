@@ -1,34 +1,37 @@
-'use client'
+'use client';
 
-import Wallet from '@/icons/Wallet'
-import PawsLogo from '@/icons/PawsLogo'
-import Community from '@/icons/Community'
-import Star from '@/icons/Star'
-import Image from 'next/image'
-import ArrowRight from '@/icons/ArrowRight'
-import sparkles from '@/images/sparkles.png'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import Wallet from '@/icons/Wallet';
+import PawsLogo from '@/icons/PawsLogo';
+import Community from '@/icons/Community';
+import Star from '@/icons/Star';
+import Image from 'next/image';
+import ArrowRight from '@/icons/ArrowRight';
+import sparkles from '@/images/sparkles.webp'; // Updated to use correct file extension
+import { useRouter } from 'next/navigation'; // Updated import for useRouter
+import { useState } from 'react';
 
 const HomeTab = () => {
-    const router = useRouter()
-    const [walletConnected, setWalletConnected] = useState(false)
+    const router = useRouter();
+    const [walletConnected, setWalletConnected] = useState(false);
 
     const handleJoinCommunity = () => {
-        window.location.href = 'https://t.me/your_telegram_channel'
-    }
+        // Redirect to Telegram channel
+        window.location.href = 'https://t.me/your_telegram_channel';
+    };
 
     const handleConnectWallet = async () => {
         try {
-            alert('Wallet connection logic goes here.')
-            setWalletConnected(true)
+            // Add wallet connection logic here
+            alert('Wallet connection logic goes here.');
+            setWalletConnected(true);
         } catch (error) {
-            console.error('Error connecting wallet:', error)
+            console.error('Error connecting wallet:', error);
         }
-    }
+    };
 
     return (
         <div className="home-tab-con transition-all duration-300">
+            {/* Connect Wallet Button */}
             <button
                 className="w-full flex justify-center mt-8"
                 onClick={handleConnectWallet}
@@ -39,6 +42,7 @@ const HomeTab = () => {
                 </div>
             </button>
 
+            {/* PAWS Balance Section */}
             <div className="flex flex-col items-center mt-8">
                 <PawsLogo className="w-28 h-28 mb-4" />
                 <div className="flex items-center gap-1 text-center">
@@ -58,7 +62,9 @@ const HomeTab = () => {
                 </div>
             </div>
 
+            {/* Action Buttons */}
             <div className="space-y-3 px-4 mt-8 mb-8">
+                {/* Join Community Button */}
                 <button
                     className="shine-effect w-full bg-[#ffffff0d] border-[1px] border-[#2d2d2e] rounded-lg px-4 py-2 flex items-center justify-between"
                     onClick={handleJoinCommunity}
@@ -70,6 +76,7 @@ const HomeTab = () => {
                     <ArrowRight className="w-6 h-6 text-gray-400" />
                 </button>
 
+                {/* Check Rewards Button */}
                 <button className="w-full bg-[#ffffff0d] border-[1px] border-[#2d2d2e] rounded-lg px-4 py-2 flex items-center justify-between">
                     <div className="flex items-center gap-3 font-medium">
                         <Star className="w-8 h-8" />
@@ -79,7 +86,7 @@ const HomeTab = () => {
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default HomeTab
+export default HomeTab;
