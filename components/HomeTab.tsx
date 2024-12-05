@@ -1,12 +1,3 @@
-// components/HomeTab.tsx
-
-/**
- * This project was developed by Nikandr Surkov.
- * 
- * YouTube: https://www.youtube.com/@NikandrSurkov
- * GitHub: https://github.com/nikandr-surkov
- */
-
 'use client'
 
 import Wallet from '@/icons/Wallet'
@@ -16,15 +7,43 @@ import Star from '@/icons/Star'
 import Image from 'next/image'
 import ArrowRight from '@/icons/ArrowRight'
 import { sparkles } from '@/images'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const HomeTab = () => {
+    const router = useRouter()
+    const [walletConnected, setWalletConnected] = useState(false)
+
+    const handleJoinCommunity = () => {
+        // Replace with your Telegram channel URL
+        window.location.href = 'https://t.me/your_telegram_channel'
+    }
+
+    const handleConnectWallet = async () => {
+        try {
+            // Add your wallet connection logic here
+            // Example using Web3Modal:
+            // const web3Modal = new Web3Modal();
+            // const provider = await web3Modal.connect();
+            // setWalletConnected(true);
+
+            alert('Wallet connection logic goes here.')
+            setWalletConnected(true)
+        } catch (error) {
+            console.error('Error connecting wallet:', error)
+        }
+    }
+
     return (
         <div className={`home-tab-con transition-all duration-300`}>
             {/* Connect Wallet Button */}
-            <button className="w-full flex justify-center mt-8">
+            <button 
+                className="w-full flex justify-center mt-8"
+                onClick={handleConnectWallet}
+            >
                 <div className="bg-[#007aff] text-white px-3 py-0.5 rounded-full flex items-center gap-2">
                     <Wallet className="w-5 h-5" />
-                    <span>Connect wallet</span>
+                    <span>{walletConnected ? 'Wallet Connected' : 'Connect wallet'}</span>
                 </div>
             </button>
 
@@ -50,7 +69,10 @@ const HomeTab = () => {
 
             {/* Action Buttons */}
             <div className="space-y-3 px-4 mt-8 mb-8">
-                <button className="shine-effect w-full bg-[#ffffff0d] border-[1px] border-[#2d2d2e] rounded-lg px-4 py-2 flex items-center justify-between">
+                <button 
+                    className="shine-effect w-full bg-[#ffffff0d] border-[1px] border-[#2d2d2e] rounded-lg px-4 py-2 flex items-center justify-between"
+                    onClick={handleJoinCommunity}
+                >
                     <div className="flex items-center gap-3 font-medium">
                         <Community className="w-8 h-8" />
                         <span>Join our community</span>
