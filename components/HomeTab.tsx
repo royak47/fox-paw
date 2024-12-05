@@ -6,8 +6,8 @@ import Community from '@/icons/Community';
 import Star from '@/icons/Star';
 import Image from 'next/image';
 import ArrowRight from '@/icons/ArrowRight';
-import sparkles from '@/images/sparkles.webp'; // Corrected to use webp format
-import { useRouter } from 'next/navigation';
+import sparkles from '@/images/sparkles.webp'; // Corrected import
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 const HomeTab = () => {
@@ -15,11 +15,18 @@ const HomeTab = () => {
     const [walletConnected, setWalletConnected] = useState(false);
 
     const handleJoinCommunity = () => {
+        // Replace with your Telegram channel URL
         window.location.href = 'https://t.me/your_telegram_channel';
     };
 
     const handleConnectWallet = async () => {
         try {
+            // Add your wallet connection logic here
+            // Example using Web3Modal:
+            // const web3Modal = new Web3Modal();
+            // const provider = await web3Modal.connect();
+            // setWalletConnected(true);
+
             alert('Wallet connection logic goes here.');
             setWalletConnected(true);
         } catch (error) {
@@ -29,7 +36,8 @@ const HomeTab = () => {
 
     return (
         <div className="home-tab-con transition-all duration-300">
-            <button
+            {/* Connect Wallet Button */}
+            <button 
                 className="w-full flex justify-center mt-8"
                 onClick={handleConnectWallet}
             >
@@ -39,6 +47,7 @@ const HomeTab = () => {
                 </div>
             </button>
 
+            {/* PAWS Balance */}
             <div className="flex flex-col items-center mt-8">
                 <PawsLogo className="w-28 h-28 mb-4" />
                 <div className="flex items-center gap-1 text-center">
@@ -58,8 +67,9 @@ const HomeTab = () => {
                 </div>
             </div>
 
+            {/* Action Buttons */}
             <div className="space-y-3 px-4 mt-8 mb-8">
-                <button
+                <button 
                     className="shine-effect w-full bg-[#ffffff0d] border-[1px] border-[#2d2d2e] rounded-lg px-4 py-2 flex items-center justify-between"
                     onClick={handleJoinCommunity}
                 >
